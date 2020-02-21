@@ -1,0 +1,27 @@
+﻿@model School_Programs.Models.Course
+@{
+    ViewBag.Title = "Show";
+}
+
+<h2>Show</h2>
+<div class="container-sign-up">
+    <div class="heading-back">
+        <a href="/Course/List"><span class="glyphicon glyphicon-chevron-left"></span></a>
+        <span>Course</span>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            Course Name : <strong> @Model.courseName</strong>
+            <a href="/Course/Delete/@Model.course_id"><span class="glyphicon glyphicon-trash"></span></a>
+
+        </div>
+        <div class="panel-body">
+            <div><strong>Name :</strong> @Model.courseName</div>
+            <div><strong>Course Message : </strong>@Model.courseMessage</div>
+            <div><strong>Teacher Name :</strong> @Model.Teacher.teacherName</div>
+        </div>
+    </div>
+
+</div>
+

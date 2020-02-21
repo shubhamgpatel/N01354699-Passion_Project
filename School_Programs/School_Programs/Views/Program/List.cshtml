@@ -1,0 +1,36 @@
+﻿
+@model List<School_Programs.Models.ProgramCourse>
+@{
+    ViewBag.Title = "List";
+}
+
+
+<h2>List of Programs and Courses</h2>
+
+
+<a class="view-right" href="/Course/List">View Courses <span class="glyphicon glyphicon-chevron-right"></span></a>
+<div class="panel panel-default">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Program ID</th>
+                <th>Course ID</th>
+                
+            </tr>
+        </thead>
+
+        @{
+            foreach (var Program in Model)
+            {
+
+                <tr>
+                    <td> <span><a href="/Program/Show/@Program.program_id">@Program.program_id</a></span></td>
+                    <td><span>@Program.course_id</span></td>
+                    
+                </tr>
+
+            }
+        }
+    </table>
+
+</div>

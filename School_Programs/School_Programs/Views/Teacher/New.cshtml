@@ -1,0 +1,37 @@
+﻿@{
+    ViewBag.Title = "New";
+}
+    <script>
+// https://jsfiddle.net/rafj3md0/
+function addSpaces(input){
+    input = input.replace(/\D/g,'');
+        // Trim the remaining input to ten characters, to preserve phone number format
+        input = input.substring(0,9);
+        // Based upon the length of the string, we add formatting as necessary
+        var size = input.length;
+        if(size == 0){
+                input = input;
+        }else if(size < 4){
+                input = '('+input;
+        }else if(size < 7){
+                input = '('+input.substring(0,3)+') '+input.substring(3,6);
+        }else{
+                input = '('+input.substring(0,3)+') '+input.substring(3,6) + " " +input.substring(6,10);
+        }
+        return input;
+}
+    </script>
+
+<h2>Add a New Teacher</h2>
+<a href="/Teacher/List"><span class="glyphicon glyphicon-chevron-left"></span>Back to Teacher</a>
+<div class="container-sign-up">
+    <form method="POST" action="Add">
+        <div class="row">
+            <div><span>Name:</span><input id="teacherName" class="form-control" type="text" name="teacherName" required /></div><br />
+            <div><span>Email:</span><input id="teacherEmail" class="form-control" type="email" name="teacherEmail" required /></div>
+            <div><span>Phone:</span><input id="teacherPhone" onkeypress="this.value=addSpaces(this.value);"  class="form-control" type="text" name="teacherPhone" required /></div>
+            <br />
+            <input type="submit" class="btn btn-infxo" value="Add Teacher">
+        </div>
+    </form>
+</div>

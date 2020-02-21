@@ -1,0 +1,36 @@
+﻿@model School_Programs.Models.ViewModels.UpdateProgram
+@{
+    ViewBag.Title = "Update";
+}
+
+<h2>Update</h2>
+
+<span class="heading">
+    <p>
+        <a href="/Program/List"><span class="glyphicon glyphicon-chevron-left"></span></a>
+        Update
+    </p>
+
+</span>
+
+<div class="container-sign-up">
+    <div class="row">
+        <form action="/Program/Update/@Model.program.program_id" method="POST">
+            <span>Program Name</span><input type="text" class="form-control" required value="@Model.program.programName" id="programName" name="programName" /><br />
+            <span>Program Length</span><input type="number" class="form-control" required value="@Model.program.programLength" id="programLength" name="programLength" /><br />
+            <div>
+                <span>Courses:</span><br />
+                @{
+                    foreach (var Course in  @Model.courses)
+                    {
+                        <input type="checkbox" name="course_id" value="@Course.course_id" />
+                        @Course.courseName
+                        <br />
+                    }
+                }
+            </div>
+            <br />
+            <input type="submit" class="btn btn-info" value="Update Program" />
+        </form>
+    </div>
+</div>

@@ -1,0 +1,43 @@
+﻿@model School_Programs.Models.ViewModels.TeachersList
+@{
+    ViewBag.Title = "List";
+}
+
+
+<h2>List of Teachers</h2>
+<span class="add-btn">
+    <a href="/Teacher/New">Add New <span class="glyphicon glyphicon-plus"></span></a>
+</span>
+
+<a class="view-right" href="/Course/List">View Courses <span class="glyphicon glyphicon-chevron-right"></span></a>
+<div class="panel panel-default">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Teacher Name</th>
+                <th>Teacher Email</th>
+                <th>Teacher Contact</th>
+                <th>Total Courses</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+
+        @{
+            foreach (var Teacher in Model.teachers)
+            {
+
+                <tr>
+                    <td> <span><a href="/Teacher/Show/@Teacher.teacher_id">@Teacher.teacherName</a></span></td>
+                    <td><span>@Teacher.teacherEmail</span></td>
+                    <td><span>@Teacher.teacherPhone</span></td>
+                    <td>@Model.teachersCourses[Teacher.teacher_id].Count</td>
+                    <td> <span><a href="/Teacher/Update/@Teacher.teacher_id">Update</a></span></td>
+                    <td><span><a href="/Teacher/Delete/@Teacher.teacher_id">Delete</a></span></td>
+                </tr>
+
+            }
+        }
+    </table>
+
+</div>

@@ -1,0 +1,32 @@
+﻿@model  List<School_Programs.Models.Teacher>
+@{
+    ViewBag.Title = "New";
+}
+
+<h2>Add a New Course</h2>
+<a href="/Course/List"><span class="glyphicon glyphicon-chevron-left"></span>Back to Courses</a>
+<div class="container-sign-up">
+    <form method="POST" action="Add">
+        <div class="row">
+            <div><span>Name:</span><input id="courseName" class="form-control" type="text" name="courseName" required /></div><br />
+            <div><span>Course message:</span><input id="courseMessage" class="form-control" type="text" name="courseMessage" required /></div>
+            <div>
+                <span>Teacher:</span>
+                <select id="teacher_id" class="form-control" type="text" name="teacher_id" required>
+                    @{
+                        //A rendering loop for presenting a list of species
+                        //The pet should be one of these species
+                        foreach (var Teachers in Model)
+                        {
+                            <option value="@Teachers.teacher_id">@Teachers.teacherName</option>
+
+                        }
+                    }
+                </select>
+            </div>
+            <br />
+            <input type="submit" class="btn btn-infxo" value="Add Course">
+        </div>
+    </form>
+</div>
+

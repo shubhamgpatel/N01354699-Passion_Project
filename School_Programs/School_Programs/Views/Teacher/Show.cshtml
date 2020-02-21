@@ -1,0 +1,36 @@
+﻿@model School_Programs.Models.ViewModels.TeacherShow
+@{
+    ViewBag.Title = "Show";
+}
+
+<h2>Show</h2>
+
+<div class="container-sign-up">
+    <div class="heading-back">
+        <a href="/Teacher/List"><span class="glyphicon glyphicon-chevron-left"></span></a>
+        <span>Teacher</span>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            Teacher Name : <strong> @Model.teacher.teacherName</strong>
+            <a href="/Pet/Delete/@Model.teacher.teacher_id"><span class="glyphicon glyphicon-trash"></span></a>
+
+        </div>
+        <div class="panel-body">
+            <div>Name : @Model.teacher.teacherName</div>
+            <div>Email : @Model.teacher.teacherEmail</div>
+            <div>Phone : @Model.teacher.teacherPhone</div>
+        </div>
+
+        @{
+            foreach (var Course in Model.courses)
+            {
+                <p>@Course.courseName</p>
+            }
+        }
+
+    </div>
+
+
+        </div>

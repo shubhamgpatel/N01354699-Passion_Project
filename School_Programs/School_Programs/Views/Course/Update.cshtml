@@ -1,0 +1,40 @@
+﻿@model School_Programs.Models.ViewModels.UpdateCourse
+@{
+    ViewBag.Title = "Update";
+}
+
+<span class="heading">
+    <p>
+        <a href="/Course/List"><span class="glyphicon glyphicon-chevron-left"></span></a>
+        Update
+    </p>
+
+</span>
+
+<div class="container-sign-up">
+    <div class="row">
+        <form action="/Course/Update/@Model.course.course_id" method="POST">
+            <span>Course Name</span><input type="text" class="form-control" required value="@Model.course.courseName" id="courseName" name="courseName" /><br />
+            <span>Course Message</span><input type="text" class="form-control" required value="@Model.course.courseMessage" id="courseMessage" name="courseMessage" /><br />
+ 
+            <span>Select Teacher</span>
+            <select id="teacher_id" type="text" class="form-control" name="teacher_id">
+                @{
+                    foreach (var teacher in @Model.teacher)
+                    {
+                        var selected = "";
+                        if (teacher.teacher_id == Model.course.Teacher.teacher_id)
+                        {
+                            selected = "selected";
+
+                        }
+                        <option value="@teacher.teacher_id" @selected>@teacher.teacherName</option>
+                    }
+                }
+            </select>
+            <br />
+          
+            <input type="submit" class="btn btn-info" value="Update Course" />
+        </form>
+    </div>
+</div>

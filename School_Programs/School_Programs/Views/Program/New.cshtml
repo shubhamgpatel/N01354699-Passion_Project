@@ -1,0 +1,17 @@
+﻿@{
+    ViewBag.Title = "New";
+}
+
+<h2>Add a New Program</h2>
+<a href="/Course/List"><span class="glyphicon glyphicon-chevron-left"></span>Back to Courses</a>
+<div class="container-sign-up">
+    <form method="POST" action="Add">
+        <div class="row">
+            <div><span>Name:</span><input id="programName" class="form-control" type="text" name="programName" required /></div><br />
+            <div><span>Program Length(in years):</span><input id="programLength" class="form-control" type="number" name="programLength" required /></div>
+           
+            <br />
+            <input type="submit" class="btn btn-infxo" value="Add Program">
+        </div>
+    </form>
+</div>

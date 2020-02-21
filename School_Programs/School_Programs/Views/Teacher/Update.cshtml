@@ -1,0 +1,26 @@
+﻿@model School_Programs.Models.Teacher
+@{
+    ViewBag.Title = "Update";
+}
+
+<h2>Update</h2>
+
+<span class="heading">
+    <p>
+        <a href="/Teacher/List"><span class="glyphicon glyphicon-chevron-left"></span></a>
+       
+    </p>
+
+</span>
+
+<div class="container-sign-up">
+    <div class="row">
+        <form action="/Teacher/Update/@Model.teacher_id" method="POST">
+            <span>Teacher Name</span><input type="text" class="form-control" required value="@Model.teacherName" id="teacherName" name="teacherName" /><br />
+            <span>Teacher Email</span><input type="text" class="form-control" required value="@Model.teacherEmail" id="teacherEmail" name="teacherEmail" /><br />
+            <span>Teacher Phone</span><input type="text" class="form-control" required value="@Model.teacherPhone" id="teacherPhone" name="teacherPhone" /><br />
+       
+            <input type="submit" class="btn btn-info" value="Update Teacher" />
+        </form>
+    </div>
+</div>
